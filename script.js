@@ -80,12 +80,19 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 })
 
 // Navbar shadow effect on scroll
+let scrollTimeout
 window.addEventListener("scroll", () => {
-  const navbar = document.querySelector(".navbar")
-  if (window.scrollY > 50) {
-    navbar.style.boxShadow = "0 10px 40px rgba(0, 0, 0, 0.2)"
-  } else {
-    navbar.style.boxShadow = "none"
+  if (!scrollTimeout) {
+    const navbar = document.querySelector(".navbar")
+    if (window.scrollY > 50) {
+      navbar.style.boxShadow = "0 10px 40px rgba(0, 0, 0, 0.2)"
+    } else {
+      navbar.style.boxShadow = "none"
+    }
+
+    scrollTimeout = setTimeout(() => {
+      scrollTimeout = null
+    }, 10)
   }
 })
 
@@ -108,12 +115,17 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions)
 
 // Track mouse movement for interactive effects
+let mouseTimeout
 document.addEventListener("mousemove", (e) => {
   const gradient = document.querySelector(".hero-gradient")
-  if (gradient) {
+  if (gradient && !mouseTimeout) {
     const x = e.clientX / window.innerWidth
     const y = e.clientY / window.innerHeight
     gradient.style.transform = `translate(${x * 50}px, ${y * 50}px)`
+
+    mouseTimeout = setTimeout(() => {
+      mouseTimeout = null
+    }, 10)
   }
 })
 

@@ -869,6 +869,7 @@ body {
 }
 
 /* Mobile Responsive */
+/* Enhanced mobile responsiveness for better experience on all devices */
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
@@ -914,6 +915,7 @@ body {
 
   .performance-metrics {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .features-grid,
@@ -946,6 +948,21 @@ body {
   .btn-primary,
   .btn-secondary {
     width: 100%;
+  }
+
+  /* Improved FAQ styling on mobile */
+  .faq-container {
+    max-width: 100%;
+  }
+
+  .faq-question {
+    font-size: 15px;
+    padding: 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
   }
 }
 
@@ -995,5 +1012,22 @@ body {
 
   .contact {
     padding: 60px 0;
+  }
+
+  /* Better spacing for small screens */
+  .metric {
+    padding: 10px;
+  }
+
+  .metric-value {
+    font-size: 28px;
+  }
+
+  .performance-metrics {
+    gap: 15px;
+  }
+
+  .footer-content {
+    gap: 20px;
   }
 }
