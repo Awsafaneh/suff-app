@@ -49,6 +49,53 @@
   }
 }
 
+/* Updated logo styling to support professional PNG image */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-image {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(255, 51, 51, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.logo:hover .logo-image {
+  filter: drop-shadow(0 0 15px rgba(255, 51, 51, 0.6));
+}
+
+.logo-svg {
+  width: 45px;
+  height: 45px;
+  filter: drop-shadow(0 0 8px rgba(255, 51, 51, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.logo:hover .logo-svg {
+  filter: drop-shadow(0 0 15px rgba(255, 51, 51, 0.6));
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #ff3333 0%, #cc0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Custom animations for elements not easily achievable with Tailwind directives */
 @keyframes pageSlideIn {
   from {
@@ -80,5 +127,19 @@
 
   .menu-toggle {
     @apply flex flex-col gap-1.5;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+
+  .logo-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-svg {
+    width: 40px;
+    height: 40px;
   }
 }
