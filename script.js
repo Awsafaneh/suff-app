@@ -1,22 +1,44 @@
-// Smooth scrolling for navigation links
-function scrollToSection(id) {
-  const element = document.getElementById(id)
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" })
+// Multi-page routing
+function navigateTo(page) {
+  // Hide all pages
+  document.querySelectorAll(".page").forEach((p) => p.classList.remove("active"))
+
+  // Show selected page
+  const selectedPage = document.getElementById(`${page}-page`)
+  if (selectedPage) {
+    selectedPage.classList.add("active")
+    window.scrollTo(0, 0)
   }
+
+  // Close mobile menu
+  document.getElementById("navLinks").classList.remove("active")
+  document.getElementById("menuToggle").classList.remove("active")
 }
+
+// Mobile menu toggle
+document.getElementById("menuToggle")?.addEventListener("click", function () {
+  this.classList.toggle("active")
+  document.getElementById("navLinks").classList.toggle("active")
+})
+
+// Close menu when clicking on a link
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    document.getElementById("menuToggle").classList.remove("active")
+    document.getElementById("navLinks").classList.remove("active")
+  })
+})
+
+// Logo click to home
+document.querySelector(".logo")?.addEventListener("click", () => {
+  navigateTo("home")
+})
 
 // Tab switching
 function switchTab(tabName, btn) {
-  // Hide all tabs
-  const tabs = document.querySelectorAll(".tab-content")
-  tabs.forEach((tab) => tab.classList.remove("active"))
+  document.querySelectorAll(".tab-content").forEach((tab) => tab.classList.remove("active"))
+  document.querySelectorAll(".tab-btn").forEach((button) => button.classList.remove("active"))
 
-  // Remove active class from all buttons
-  const buttons = document.querySelectorAll(".tab-btn")
-  buttons.forEach((button) => button.classList.remove("active"))
-
-  // Show selected tab
   const selectedTab = document.getElementById(tabName)
   if (selectedTab) {
     selectedTab.classList.add("active")
@@ -29,12 +51,8 @@ function toggleFAQ(btn) {
   const item = btn.parentElement
   const isActive = item.classList.contains("active")
 
-  // Close all other FAQs
-  document.querySelectorAll(".faq-item").forEach((faq) => {
-    faq.classList.remove("active")
-  })
+  document.querySelectorAll(".faq-item").forEach((faq) => faq.classList.remove("active"))
 
-  // Toggle current FAQ
   if (!isActive) {
     item.classList.add("active")
   }
@@ -47,7 +65,21 @@ function handleFormSubmit(e) {
   e.target.reset()
 }
 
-// Navbar scroll effect
+// Smooth scroll for navigation
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
+    const href = link.getAttribute("href")
+    if (href !== "#") {
+      const element = document.querySelector(href)
+      if (element) {
+        e.preventDefault()
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  })
+})
+
+// Navbar shadow effect on scroll
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navbar")
   if (window.scrollY > 50) {
@@ -57,7 +89,7 @@ window.addEventListener("scroll", () => {
   }
 })
 
-// Intersection Observer for animations
+// Intersection Observer for scroll animations
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -100px 0px",
@@ -75,15 +107,24 @@ const observer = new IntersectionObserver((entries) => {
   })
 }, observerOptions)
 
-// Observe all cards and special items
-window.addEventListener("DOMContentLoaded", () => {
-  document
-    .querySelectorAll(".feature-card, .stat-card, .pricing-card, .testimonial-card, .trust-item, .faq-item")
-    .forEach((el) => {
-      el.style.opacity = "0"
-      observer.observe(el)
-    })
+// Track mouse movement for interactive effects
+document.addEventListener("mousemove", (e) => {
+  const gradient = document.querySelector(".hero-gradient")
+  if (gradient) {
+    const x = e.clientX / window.innerWidth
+    const y = e.clientY / window.innerHeight
+    gradient.style.transform = `translate(${x * 50}px, ${y * 50}px)`
+  }
+})
 
+// Initialize page on load
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".feature-card, .stat-card, .pricing-card, .faq-item").forEach((el) => {
+    el.style.opacity = "0"
+    observer.observe(el)
+  })
+
+  // Animate metrics
   const metricsSection = document.querySelector(".performance-metrics")
   if (metricsSection) {
     const metricsObserver = new IntersectionObserver((entries) => {
@@ -96,9 +137,9 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 })
 
+// Animate counter numbers
 function animateCounters() {
   const metricValues = document.querySelectorAll(".metric-value")
-  const animationsStarted = false
 
   metricValues.forEach((el, index) => {
     const finalValue = el.textContent
@@ -138,3 +179,13 @@ function animateValue(element, start, end, duration, suffix) {
 
   requestAnimationFrame(step)
 }
+
+// Prevent default behavior for mailto and tel links
+document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach((link) => {
+  link.addEventListener("click", (e) => {
+    // Allow default behavior for these links
+  })
+})
+
+// Set initial active page
+document.getElementById("home-page").classList.add("active")
