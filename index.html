@@ -374,6 +374,24 @@
                                 The 30-day free trial includes full access to all features: unlimited scans, AI detection, dashboards, and basic reporting - no credit card required.
                             </div>
                         </div>
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>💼 What support options are available?</span>
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                We offer 24/7 email support, dedicated account managers for enterprise clients, and comprehensive documentation and video tutorials.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+                                <span>🔄 How often are updates released?</span>
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                We release weekly security updates and quarterly feature releases with continuous improvements based on customer feedback.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -384,38 +402,44 @@
             <section class="contact">
                 <div class="container">
                     <h2 class="section-title">📞 Get In Touch</h2>
-                    <div class="contact-grid">
+                    <div class="contact-content">
                         <div class="contact-info">
-                            <h3>🌍 Contact Information</h3>
+                            <h3>Contact Information</h3>
                             <div class="contact-item">
-                                <span class="contact-icon">📧</span>
+                                <div class="contact-icon">📧</div>
                                 <div>
-                                    <h4>Email</h4>
-                                    <p><a href="mailto:support@suffixsec.com">support@suffixsec.com</a></p>
+                                    <p><strong>Email</strong></p>
+                                    <a href="mailto:support@suffixsec.com">support@suffixsec.com</a>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <span class="contact-icon">📱</span>
+                                <div class="contact-icon">📱</div>
                                 <div>
-                                    <h4>Phone</h4>
-                                    <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                                    <p><strong>Phone</strong></p>
+                                    <a href="tel:+1234567890">+1 (234) 567-890</a>
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <span class="contact-icon">📍</span>
+                                <div class="contact-icon">🌐</div>
                                 <div>
-                                    <h4>Address</h4>
-                                    <p>123 Security Street, Tech City, TC 12345</p>
+                                    <p><strong>Website</strong></p>
+                                    <a href="https://suffixsec.com" target="_blank" rel="noopener noreferrer">www.suffixsec.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">📍</div>
+                                <div>
+                                    <p><strong>Address</strong></p>
+                                    <p>123 Security Street, Tech Valley, CA 94025</p>
                                 </div>
                             </div>
                         </div>
                         <form class="contact-form" onsubmit="handleFormSubmit(event)">
-                            <h3>📝 Send us a Message</h3>
                             <input type="text" placeholder="Your Name" required>
                             <input type="email" placeholder="Your Email" required>
-                            <input type="text" placeholder="Company Name">
+                            <input type="text" placeholder="Subject" required>
                             <textarea placeholder="Your Message" rows="6" required></textarea>
-                            <button type="submit" class="btn-primary">Send Message 🚀</button>
+                            <button type="submit" class="btn-primary">🚀 Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -423,15 +447,48 @@
         </section>
     </main>
 
-    <!-- Floating WhatsApp button -->
-    <a href="https://wa.me/962791227346" target="_blank" rel="noopener noreferrer" class="whatsapp-button" title="Chat with us on WhatsApp">
-        <span class="whatsapp-icon">💬</span>
+    <!-- Floating WhatsApp Button with pulse animation -->
+    <a href="https://wa.me/962791227346" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" title="Chat with us on WhatsApp">
+        <span>💬</span>
     </a>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 SuffixSec. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🔐 SuffixSec</h4>
+                    <p>Enterprise-Grade Vulnerability Detection & Response Platform</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#" onclick="navigateTo('features')">Features</a></li>
+                        <li><a href="#" onclick="navigateTo('pricing')">Pricing</a></li>
+                        <li><a href="#" onclick="navigateTo('solutions')">Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#" onclick="navigateTo('contact')">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter">𝕏</a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼</a>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub">🐙</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SuffixSec. All rights reserved.</p>
+                <p>Securing the digital world, one vulnerability at a time.</p>
+            </div>
         </div>
     </footer>
 
