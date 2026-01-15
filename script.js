@@ -60,16 +60,17 @@ window.addEventListener("scroll", () => {
 // Intersection Observer for animations
 const observerOptions = {
   threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
+  rootMargin: "0px 0px -100px 0px",
 }
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, index) => {
     if (entry.isIntersecting) {
       setTimeout(() => {
-        entry.target.style.animation = "fadeIn 0.6s ease forwards"
+        entry.target.style.opacity = "1"
+        entry.target.style.animation = "slideUp 0.6s ease forwards"
         observer.unobserve(entry.target)
-      }, index * 100)
+      }, index * 50)
     }
   })
 }, observerOptions)
@@ -77,54 +78,63 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all cards and special items
 window.addEventListener("DOMContentLoaded", () => {
   document
-    .querySelectorAll(".feature-card, .stat-card, .pricing-card, .testimonial-card, .trust-item")
+    .querySelectorAll(".feature-card, .stat-card, .pricing-card, .testimonial-card, .trust-item, .faq-item")
     .forEach((el) => {
+      el.style.opacity = "0"
       observer.observe(el)
     })
 
-  // Animate counters when metrics section comes into view
   const metricsSection = document.querySelector(".performance-metrics")
   if (metricsSection) {
-    new IntersectionObserver((entries) => {
+    const metricsObserver = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         animateCounters()
+        metricsObserver.unobserve(metricsSection)
       }
-    }).observe(metricsSection)
+    })
+    metricsObserver.observe(metricsSection)
   }
 })
 
 function animateCounters() {
   const metricValues = document.querySelectorAll(".metric-value")
+  const animationsStarted = false
 
-  const counters = {
-    "2.3s": { duration: 2000, format: "time" },
-    "99.8%": { duration: 2000, format: "percent" },
-    "5000+": { duration: 2000, format: "number" },
+  metricValues.forEach((el, index) => {
+    const finalValue = el.textContent
+
+    setTimeout(() => {
+      if (finalValue.includes("s")) {
+        animateValue(el, 0, 2.3, 1500, "s")
+      } else if (finalValue.includes("%")) {
+        animateValue(el, 0, 99.8, 1500, "%")
+      } else if (finalValue.includes("+")) {
+        animateValue(el, 0, 15000, 1500, "+")
+      }
+    }, index * 150)
+  })
+}
+
+function animateValue(element, start, end, duration, suffix) {
+  let startTimestamp = null
+
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1)
+    const current = Math.floor(progress * (end - start) + start)
+
+    if (suffix === "%") {
+      element.textContent = (start + progress * (end - start)).toFixed(1) + "%"
+    } else if (suffix === "s") {
+      element.textContent = (start + progress * (end - start)).toFixed(1) + "s"
+    } else {
+      element.textContent = current + "+"
+    }
+
+    if (progress < 1) {
+      requestAnimationFrame(step)
+    }
   }
 
-  metricValues.forEach((el) => {
-    const finalValue = el.textContent
-    if (counters[finalValue]) {
-      const start = 0
-      const end = Number.parseFloat(finalValue)
-      const increment = end / 60
-      let current = start
-
-      const timer = setInterval(() => {
-        current += increment
-        if (current >= end) {
-          el.textContent = finalValue
-          clearInterval(timer)
-        } else {
-          if (finalValue.includes("%")) {
-            el.textContent = current.toFixed(1) + "%"
-          } else if (finalValue.includes("s")) {
-            el.textContent = current.toFixed(1) + "s"
-          } else {
-            el.textContent = Math.floor(current) + "+"
-          }
-        }
-      }, 30)
-    }
-  })
+  requestAnimationFrame(step)
 }
