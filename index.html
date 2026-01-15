@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SuffixSec - Premium Cybersecurity Landing Page">
+    <title>SuffixSec - Advanced Vulnerability Detection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <span class="logo-icon">🔐</span>
+                    <span class="logo-text">SuffixSec</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="cta-button" onclick="scrollToSection('contact')">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-gradient"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">
+                Advanced
+                <span class="gradient-text">Vulnerability Detection</span>
+                Platform
+            </h1>
+            <p class="hero-subtitle">
+                Harness the power of AI to detect zero-day vulnerabilities, simulate sophisticated attacks, and protect your source code with <span class="highlight">enterprise-grade security</span> that scales with your business.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('contact')">Start Free Trial</button>
+                <button class="btn-secondary" onclick="alert('Demo video coming soon')">Watch Demo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👁️</div>
+                    <div class="stat-number">96.2%</div>
+                    <div class="stat-label">Vulnerability Detection Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-number">Zero-Day</div>
+                    <div class="stat-label">Discovery Capable</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🛡️</div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Continuous Monitoring</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Advanced Scanning</h3>
+                    <p>Deep code analysis with machine learning to identify vulnerabilities before they become threats.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚔️</div>
+                    <h3>Attack Simulation</h3>
+                    <p>Simulate sophisticated attacks to test your security measures and improve defenses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Detailed Reports</h3>
+                    <p>Comprehensive vulnerability reports with actionable insights and remediation guidance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Analytics</h3>
+                    <p>Machine learning models continuously learn from new threats to improve detection.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Real-time Alerts</h3>
+                    <p>Instant notifications for critical security threats and vulnerabilities detected.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Performance Tracking</h3>
+                    <p>Track security metrics over time and visualize improvements in your security posture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="solutions">
+        <div class="container">
+            <h2 class="section-title">Enterprise Solutions</h2>
+            <div class="solutions-tabs">
+                <button class="tab-btn active" onclick="switchTab('web', this)">Web Applications</button>
+                <button class="tab-btn" onclick="switchTab('api', this)">API Security</button>
+                <button class="tab-btn" onclick="switchTab('cloud', this)">Cloud Infrastructure</button>
+            </div>
+            <div id="web" class="tab-content active">
+                <h3>Web Application Security</h3>
+                <p>Comprehensive scanning and testing for web applications including OWASP Top 10 vulnerabilities.</p>
+            </div>
+            <div id="api" class="tab-content">
+                <h3>API Security Testing</h3>
+                <p>Advanced API security testing with automated vulnerability detection and compliance checking.</p>
+            </div>
+            <div id="cloud" class="tab-content">
+                <h3>Cloud Infrastructure Security</h3>
+                <p>Secure your cloud infrastructure with continuous monitoring and threat detection.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <h3>Initialize Scan</h3>
+                    <p>Configure and launch comprehensive security scan on your target.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <h3>Analyze</h3>
+                    <p>AI analyzes code and infrastructure for potential vulnerabilities.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <h3>Generate Report</h3>
+                    <p>Detailed report with findings and remediation recommendations.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <h3>Take Action</h3>
+                    <p>Fix vulnerabilities and re-scan to verify security improvements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Flexible Pricing Plans</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$29<span>/mo</span></div>
+                    <ul class="features-list">
+                        <li>✓ Up to 5 projects</li>
+                        <li>✓ Basic scanning</li>
+                        <li>✓ Weekly reports</li>
+                        <li>✓ Email support</li>
+                    </ul>
+                    <button class="btn-outline">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="badge">POPULAR</div>
+                    <h3>Professional</h3>
+                    <div class="price">$99<span>/mo</span></div>
+                    <ul class="features-list">
+                        <li>✓ Unlimited projects</li>
+                        <li>✓ Advanced scanning</li>
+                        <li>✓ Daily reports</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Attack simulation</li>
+                    </ul>
+                    <button class="btn-primary">Start Free Trial</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <ul class="features-list">
+                        <li>✓ Everything in Pro</li>
+                        <li>✓ Dedicated support</li>
+                        <li>✓ Custom integrations</li>
+                        <li>✓ SLA guarantee</li>
+                    </ul>
+                    <button class="btn-outline">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"SuffixSec has completely transformed how we approach security. The vulnerability detection is incredibly accurate."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">JD</div>
+                        <div>
+                            <div class="author-name">John Doe</div>
+                            <div class="author-title">CTO, Tech Startup</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The best security platform we've used. The reports are clear, actionable, and help us fix issues fast."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">SM</div>
+                        <div>
+                            <div class="author-name">Sarah Miller</div>
+                            <div class="author-title">Security Lead, Enterprise</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Exceptional support and features. SuffixSec found critical vulnerabilities we missed with other tools."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">MJ</div>
+                        <div>
+                            <div class="author-name">Mike Johnson</div>
+                            <div class="author-title">DevOps Engineer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is SuffixSec?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>SuffixSec is an advanced vulnerability detection platform that uses AI to identify security threats in your code and infrastructure.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How accurate is the vulnerability detection?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our platform has a 96.2% vulnerability detection rate, continuously improving through machine learning.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What support options are available?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer email support for Starter plans, priority support for Professional, and dedicated support for Enterprise.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I try SuffixSec for free?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a free trial of the Professional plan. No credit card required.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How often are scans performed?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Starter plans get weekly scans, Professional gets daily, and Enterprise can have continuous monitoring.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is my data secure with SuffixSec?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. We use enterprise-grade encryption and follow all security compliance standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get Started Today</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <span class="contact-label">Email:</span>
+                        <a href="mailto:support@suffixsec.com">support@suffixsec.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Phone:</span>
+                        <a href="tel:+1800555010">+1 (800) 555-0100</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Social:</span>
+                        <div class="social-links">
+                            <a href="#" target="_blank">Twitter</a>
+                            <a href="#" target="_blank">LinkedIn</a>
+                            <a href="#" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SuffixSec</h3>
+                    <p>Advanced vulnerability detection and security testing platform.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#security">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#security">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SuffixSec. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
