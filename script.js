@@ -64,17 +64,67 @@ const observerOptions = {
 }
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+  entries.forEach((entry, index) => {
     if (entry.isIntersecting) {
-      entry.target.style.animation = "fadeIn 0.6s ease forwards"
-      observer.unobserve(entry.target)
+      setTimeout(() => {
+        entry.target.style.animation = "fadeIn 0.6s ease forwards"
+        observer.unobserve(entry.target)
+      }, index * 100)
     }
   })
 }, observerOptions)
 
-// Observe all cards on page load
+// Observe all cards and special items
 window.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".feature-card, .stat-card, .pricing-card, .testimonial-card").forEach((el) => {
-    observer.observe(el)
-  })
+  document
+    .querySelectorAll(".feature-card, .stat-card, .pricing-card, .testimonial-card, .trust-item")
+    .forEach((el) => {
+      observer.observe(el)
+    })
+
+  // Animate counters when metrics section comes into view
+  const metricsSection = document.querySelector(".performance-metrics")
+  if (metricsSection) {
+    new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        animateCounters()
+      }
+    }).observe(metricsSection)
+  }
 })
+
+function animateCounters() {
+  const metricValues = document.querySelectorAll(".metric-value")
+
+  const counters = {
+    "2.3s": { duration: 2000, format: "time" },
+    "99.8%": { duration: 2000, format: "percent" },
+    "5000+": { duration: 2000, format: "number" },
+  }
+
+  metricValues.forEach((el) => {
+    const finalValue = el.textContent
+    if (counters[finalValue]) {
+      const start = 0
+      const end = Number.parseFloat(finalValue)
+      const increment = end / 60
+      let current = start
+
+      const timer = setInterval(() => {
+        current += increment
+        if (current >= end) {
+          el.textContent = finalValue
+          clearInterval(timer)
+        } else {
+          if (finalValue.includes("%")) {
+            el.textContent = current.toFixed(1) + "%"
+          } else if (finalValue.includes("s")) {
+            el.textContent = current.toFixed(1) + "s"
+          } else {
+            el.textContent = Math.floor(current) + "+"
+          }
+        }
+      }, 30)
+    }
+  })
+}
