@@ -1,13 +1,23 @@
 // Multi-page routing
 function navigateTo(page) {
-  // Hide all pages
-  document.querySelectorAll(".page").forEach((p) => p.classList.remove("active"))
-
-  // Show selected page
+  const currentPages = document.querySelectorAll(".page.active")
   const selectedPage = document.getElementById(`${page}-page`)
-  if (selectedPage) {
-    selectedPage.classList.add("active")
-    window.scrollTo(0, 0)
+
+  if (selectedPage && !selectedPage.classList.contains("active")) {
+    // Fade out current page
+    currentPages.forEach((p) => {
+      p.style.animation = "fadeOut 0.4s ease forwards"
+      setTimeout(() => {
+        p.classList.remove("active")
+      }, 400)
+    })
+
+    // Fade in new page
+    setTimeout(() => {
+      selectedPage.classList.add("active")
+      selectedPage.style.animation = "pageSlideIn 0.6s ease-out"
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    }, 400)
   }
 
   // Close mobile menu
@@ -201,3 +211,38 @@ document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach((link) 
 
 // Set initial active page
 document.getElementById("home-page").classList.add("active")
+
+const featureCards = document.querySelectorAll(".feature-card, .pricing-card")
+featureCards.forEach((card) => {
+  card.addEventListener("mouseenter", function () {
+    this.style.transform = "translateY(-10px) scale(1.02)"
+    this.style.boxShadow = "0 20px 50px rgba(255, 0, 0, 0.2)"
+  })
+
+  card.addEventListener("mouseleave", function () {
+    this.style.transform = "translateY(0) scale(1)"
+    this.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.2)"
+  })
+})
+
+// Animation keyframes
+function fadeOut() {
+  return {
+    from: { opacity: 1 },
+    to: { opacity: 0 },
+  }
+}
+
+function pageSlideIn() {
+  return {
+    from: { opacity: 0, transform: "translateX(-100%)" },
+    to: { opacity: 1, transform: "translateX(0)" },
+  }
+}
+
+function slideUp() {
+  return {
+    from: { opacity: 0, transform: "translateY(50px)" },
+    to: { opacity: 1, transform: "translateY(0)" },
+  }
+}
